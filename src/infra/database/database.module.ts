@@ -13,8 +13,6 @@ import { UserRepository } from 'src/user/repositories/user.repository';
       inject: [PrismaService],
     },
   ],
-  exports: [
-    UserRepository,
-  ],
+  exports: [UserRepository],
 })
 export class DatabaseModule {}

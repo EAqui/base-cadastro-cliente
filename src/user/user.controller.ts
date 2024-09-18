@@ -5,14 +5,10 @@ import { GetTokenDto } from './dto/get-token.dto';
 
 @Controller('user')
 export class UserController {
-    constructor(
-        private readonly userService: UserService,
-    ) {}
+  constructor(private readonly userService: UserService) {}
 
-    @Post('/signin')
-    async login(
-        @Body() body: SigninDto
-    ): Promise<GetTokenDto> {
-        return await this.userService.signin(body);
-    }
+  @Post('/signin')
+  async login(@Body() body: SigninDto): Promise<GetTokenDto> {
+    return await this.userService.signin(body);
+  }
 }

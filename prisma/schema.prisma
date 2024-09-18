@@ -14,9 +14,9 @@ datasource db {
 }
 
 model User {
-  id         String       @default(uuid()) @unique
-  email      String
-  password   String
-  createdAt  DateTime     @default(now()) @map("created_at")
-  deletedAt  DateTime?     @map("deleted_at")
+  id        String    @unique @default(uuid())
+  email     String
+  password  String
+  createdAt DateTime  @default(now()) @map("created_at")
+  deletedAt DateTime? @map("deleted_at")
 }

@@ -3,20 +3,16 @@ FROM node:18.15.0
 WORKDIR /app
 
 COPY package*.json ./
-COPY prisma ./prisma/
 
 RUN npm install
 
-RUN  npx prisma generate
-
 COPY . .
 
+RUN npm rebuild bcrypt --build-from-source
+
+RUN npx prisma generate
 RUN npm run build
 
 EXPOSE 3000
 
-RUN npm install prisma -g
-
-CMD [ "prisma", "migrate", "deploy" ]
-CMD [ "prisma", "db", "seed" ]
-CMD [ "node", "dist/main" ]
+CMD ["sh", "-c", "npx prisma migrate deploy && npx prisma db seed && node dist/main"]

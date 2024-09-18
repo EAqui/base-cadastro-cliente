@@ -1,7 +1,7 @@
 export class GetTokenDto {
-    token: string;
+  token: string;
 
-    constructor(data: string) {
-        this.token = data;
-    }
+  constructor(data: string) {
+    this.token = data;
+  }
 }

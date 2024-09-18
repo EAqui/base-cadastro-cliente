@@ -1,4 +1,10 @@
+import { IsEmail, IsNotEmpty } from 'class-validator';
+
 export class SigninDto {
-    email: string;
-    password: string;
+  @IsNotEmpty({ message: 'Informe o seu e-mail' })
+  @IsEmail({}, { message: 'E-mail inválido' })
+  email: string;
+
+  @IsNotEmpty({ message: 'Informe a sua senha' })
+  password: string;
 }
